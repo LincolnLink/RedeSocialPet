@@ -6,17 +6,15 @@ import useForm from "../../Hooks/useForm";
 import { TOKEN_POST, USER_GET } from "../../api";
 
 
-const LoginForm = () => {
-    //const username = useForm('email');
+const LoginForm = () => {    
     const username = useForm();
-    const password = useForm()
-    //console.log(username);
+    const password = useForm();    
 
     React.useEffect(() => {
-        //const token = window.localStorage.getItem('token');
-        // if(token){
-        //     getUser(token);
-        // }
+        const token = window.localStorage.getItem('token');
+        if(token){
+            getUser(token);
+        }
     }, []);
 
     async function getUser(token){
@@ -40,17 +38,8 @@ const LoginForm = () => {
 
             const response = await fetch(url, options);
             const json = await response.json();
-            console.log("erro??: ", json);
             window.localStorage.setItem('token', json.token);
-            
-            // fetch(url, options)
-            // .then((response) =>{
-            //     console.log(response);
-            //     return response.json();
-            // })
-            // .then((json) => {
-            //     console.log(json);
-            // });
+            getUser(json.token);
         }
     }
 
