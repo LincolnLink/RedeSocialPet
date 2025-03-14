@@ -1,4 +1,4 @@
-.nav{
+.nav {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1rem;
@@ -16,6 +16,7 @@
     border: 1px solid transparent;
     transition: 0.1s;
     cursor: pointer;
+    padding: 0.4em;
 }
 
 .nav a:houver,

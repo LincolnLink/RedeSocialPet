@@ -1,7 +1,9 @@
 import React from "react";
 import styles from './Header.module.css';
 import { Link } from "react-router-dom";
-import Dogs from '../../Assets/dogs.svg?react';
+//import Dogs from '../../Assets/dogs.svg?react';
+import { ReactComponent as Dogs } from '../../Assets/dogs.svg';
+
 import { UserContext } from "../../UserContext";
 
 const Header = () => {

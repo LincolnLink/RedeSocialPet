@@ -1,5 +1,11 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useEffect } from "react";
+import { 
+  BrowserRouter, 
+  Routes, 
+  Route,
+  createBrowserRouter,
+  RouterProvider
+} from "react-router-dom";
 import './App.css';
 //import Api from "./exemplo/Api";
 import Header from "./Components/Header/Header";
@@ -10,7 +16,36 @@ import { UserStorage } from "./UserContext";
 import User from "./Components/User/User";
 import ProtectedRoute from "./Components/Helper/ProtectedRoute";
   
-const App = () => {  
+const App = () => { 
+  
+  // Habilitando transições de navegação usando React.startTransition
+  // useEffect(() => {
+  //   const router = createBrowserRouter([
+  //     {
+  //       path: "/",
+  //       element: <Home />,
+  //     },
+  //     {
+  //       path: "login/*",
+  //       element: <Login />,
+  //     },
+  //     {
+  //       path: "conta/*",
+  //       element: (
+  //         <ProtectedRoute>
+  //           <User />
+  //         </ProtectedRoute>
+  //       ),
+  //     },
+  //   ]);
+
+  //   router.history.listen(() => {
+  //     // Usando React.startTransition para otimizar as transições
+  //     React.startTransition(() => {
+  //       router.update();
+  //     });
+  //   });
+  // }, []);
 
   return (
     <>

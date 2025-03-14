@@ -1,34 +1,40 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { UserContext } from '../../UserContext'
 import styles from './UserHeaderNav.module.css';
 
-//import { ReactComponet as MinhasFotos } from '../../Assets/feed.svg';
-//import { ReactComponet as Estatisticas } from '../../Assets/estatisticas.svg';
-//import { ReactComponet as AdicionarFoto } from '../../Assets/adicionar.svg';
-//import { ReactComponet as Sair } from '../../Assets/sair.svg';
+import { ReactComponent as MinhasFotos } from '../../Assets/feed.svg';
+import { ReactComponent as Estatisticas } from '../../Assets/estatisticas.svg';
+import { ReactComponent as AdicionarFoto } from '../../Assets/adicionar.svg';
+import { ReactComponent as Sair } from '../../Assets/sair.svg';
 
 
 const UserHeaderNav = () => {
     const [mobile, setMobile] = React.useState(null);
-    const {userLogout} = React.useContext(UserContext);
+    const { userLogout } = React.useContext(UserContext);
+    const navigate = useNavigate();
+
+    function handleLogout(){
+        userLogout();
+        navigate('/login');
+    }
 
     return (
-        <nav className="styles.nav">
-            <NavLink to="/conta" end>
-                {/* <MinhasFotos /> */}
+        <nav className={styles.nav}>
+            <NavLink to="/conta" end className={({ isActive }) => isActive ? styles.active : undefined}>
+                <MinhasFotos />
                 {mobile && 'Minha Fotos'}
             </NavLink>
-            <NavLink to="/conta/estatisticas">
-                {/* <Estatisticas /> */}
+            <NavLink to="/conta/estatisticas" className={({ isActive }) => isActive ? styles.active : undefined}>
+                <Estatisticas />
                 {mobile && 'Estatisticas'}
             </NavLink>
-            <NavLink to="/conta/postar">
-                {/* <AdicionarFoto /> */}
+            <NavLink to="/conta/postar" className={({ isActive }) => isActive ? styles.active : undefined}>
+                <AdicionarFoto />
                 {mobile && 'Adicionar Foto'}
             </NavLink>
-            <button onClick={userLogout}>
-                {/* <Sair /> */}
+            <button onClick={handleLogout}>
+                <Sair />
                 {mobile && 'Sair'}
             </button>
         </nav>
