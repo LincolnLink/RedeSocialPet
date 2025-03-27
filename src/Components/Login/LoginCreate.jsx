@@ -28,7 +28,7 @@ const LoginCreate = () => {
         //     userLogin(username.value, password.value)
         // }
         
-        console.log("teste: ", response);
+        // console.log("teste: ", response);
 
     }
     

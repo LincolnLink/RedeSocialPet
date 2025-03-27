@@ -12,8 +12,8 @@ const User = ({ error }) =>{
 
                 <Routes>
                     <Route path="/" element={<Feed />} />
-                    <Route path="/" element={<UserPhotoPost />} />
-                    <Route path="/" element={<UserStats />} />
+                    <Route path="/postar" element={<UserPhotoPost />} />
+                    <Route path="/estatisticas" element={<UserStats />} />
                 </Routes>
         </section>
     );
